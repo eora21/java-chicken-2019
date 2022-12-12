@@ -9,6 +9,7 @@ public class FeatureController {
 
     private final TableController tableController = new TableController(new TableService());
     private final OrderController orderController = new OrderController(tableController);
+    private final PaymentController paymentController = new PaymentController(tableController, orderController);
 
     public boolean run() {
         try {
@@ -38,7 +39,7 @@ public class FeatureController {
         }
 
         if (feature == Feature.PAYMENT) {
-            // 결제 컨트롤러 동작
+            paymentController.pay();
             return;
         }
     }
