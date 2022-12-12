@@ -31,4 +31,8 @@ public enum PaymentTool {
     public String getDescription() {
         return description;
     }
+
+    public int getTotalPay(int total) {
+        return this.calculate.applyAsInt(total);
+    }
 }
