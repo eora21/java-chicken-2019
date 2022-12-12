@@ -16,7 +16,7 @@ public class TableRepository {
         tables.add(new Table(8));
     }
 
-    public Table selectTable(int tableNumber) {
+    public static Table selectTable(int tableNumber) {
         return tables.stream()
                 .filter(table -> table.isEqualTableNumber(tableNumber))
                 .findFirst()
