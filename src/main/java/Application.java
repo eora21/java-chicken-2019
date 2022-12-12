@@ -1,21 +1,15 @@
-import domain.Menu;
-import repository.MenuRepository;
-import domain.Table;
-import repository.TableRepository;
-import view.InputView;
-import view.OutputView;
-
-import java.util.List;
+import controller.FeatureController;
 
 public class Application {
-    // TODO 구현 진행
+
     public static void main(String[] args) {
-        final List<Table> tables = TableRepository.tables();
-        OutputView.printTables(tables);
+        FeatureController featureController = new FeatureController();
 
-        final int tableNumber = InputView.inputTableNumber();
+        while (true) {
+            if (featureController.run()) {
+                return;
+            }
+        }
 
-        final List<Menu> menus = MenuRepository.menus();
-        OutputView.printMenus(menus);
     }
 }
