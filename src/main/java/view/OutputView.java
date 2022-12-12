@@ -1,9 +1,11 @@
 package view;
 
 import domain.Menu;
+import domain.Order;
 import domain.Table;
 
 import java.util.List;
+import java.util.Map;
 
 public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";
@@ -40,5 +42,14 @@ public class OutputView {
 
     public static void printError(String text) {
         System.out.printf("[ERROR] %s%n", text);
+    }
+
+    public static void printOrderState(Map<Menu, Integer> orderStatus) {
+        System.out.println("## 주문 내역");
+        System.out.println("메뉴 수량 금액");
+
+        orderStatus.forEach((menu, count) -> {
+            System.out.printf("%s, %d, %d%n", menu.getName(), count, menu.getPrice() * count);
+        });
     }
 }
