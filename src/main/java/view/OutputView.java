@@ -1,22 +1,16 @@
 package view;
 
 import domain.Menu;
-import domain.Order;
-import domain.PaymentTool;
 import domain.Table;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ ─ ┘";
-    private static final String PAYMENT_TOOL = Arrays.stream(PaymentTool.values())
-            .map(paymentTool -> String.format("%s %d번", paymentTool.getDescription(), paymentTool.getNumber()))
-            .collect(Collectors.joining(", "));
+
 
     public static void printTables(final List<Table> tables) {
         System.out.println("## 테이블 목록");
@@ -59,8 +53,7 @@ public class OutputView {
         });
     }
 
-    public static void printTablePayment(Table table) {
+    public static void printTableNumber(Table table) {
         System.out.printf("## %d번 테이블의 결제를 진행합니다.", table.getNumber());
-        System.out.printf("## %s", PAYMENT_TOOL);
     }
 }
