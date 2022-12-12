@@ -31,8 +31,7 @@ public class OrderController {
         return MenuRepository.selectMenu(menuNumber);
     }
 
-    public void showOrderState(Table table) {
-        Map<Menu, Integer> orderStatus = order.getOrderStatus(table);
-        OutputView.printOrderState(orderStatus);
+    public Map<Menu, Integer> getOrderState(Table table) {
+        return order.getOrderStatus(table);
     }
 }
