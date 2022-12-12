@@ -3,6 +3,7 @@ package controller;
 import domain.Menu;
 import domain.Order;
 import domain.Table;
+import java.util.Map;
 import repository.MenuRepository;
 import view.InputView;
 import view.OutputView;
@@ -28,5 +29,10 @@ public class OrderController {
         OutputView.printMenus(MenuRepository.menus());
         int menuNumber = InputView.inputMenuNumber();
         return MenuRepository.selectMenu(menuNumber);
+    }
+
+    public void showOrderState(Table table) {
+        Map<Menu, Integer> orderStatus = order.getOrderStatus(table);
+        OutputView.printOrderState(orderStatus);
     }
 }
