@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,4 +46,7 @@ public class Order {
         getTableStatusByTable(table).clear();
     }
 
+    public Map<Menu, Integer> getOrderStatus(Table table) {
+        return Collections.unmodifiableMap(orderStatus.get(table));
+    }
 }
