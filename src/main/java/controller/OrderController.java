@@ -3,7 +3,7 @@ package controller;
 import domain.Menu;
 import domain.Order;
 import domain.Table;
-import domain.TableRepository;
+import repository.TableRepository;
 import view.InputView;
 import view.OutputView;
 
