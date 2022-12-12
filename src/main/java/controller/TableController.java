@@ -8,7 +8,7 @@ import view.OutputView;
 
 public class TableController {
 
-    TableService tableService;
+    private final TableService tableService;
 
     public TableController(TableService tableService) {
         this.tableService = tableService;
