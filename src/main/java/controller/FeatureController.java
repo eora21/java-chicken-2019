@@ -1,14 +1,14 @@
 package controller;
 
 import domain.Feature;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import service.TableService;
 import view.InputView;
 import view.OutputView;
 
 public class FeatureController {
 
-    private final OrderController orderController = new OrderController();
+    private final TableController tableController = new TableController(new TableService());
+    private final OrderController orderController = new OrderController(tableController);
 
     public boolean run() {
         try {

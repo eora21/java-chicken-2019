@@ -4,25 +4,25 @@ import domain.Menu;
 import domain.Order;
 import domain.Table;
 import repository.MenuRepository;
-import repository.TableRepository;
 import view.InputView;
 import view.OutputView;
 
 public class OrderController {
+
+    private final TableController tableController;
     private final Order order = new Order();
 
+    public OrderController(TableController tableController) {
+        this.tableController = tableController;
+    }
+
     public void addOrder() {
-        Table table = selectTable();
+        Table table = tableController.getTable();
         Menu menu = selectMenu();
         int orderCount = InputView.inputOrderCount();
         order.add(table, menu, orderCount);
     }
 
-    private Table selectTable() {
-        OutputView.printTables(TableRepository.tables());
-        int tableNumber = InputView.inputTableNumber();
-        return TableRepository.selectTable(tableNumber);
-    }
 
     private Menu selectMenu() {
         OutputView.printMenus(MenuRepository.menus());
