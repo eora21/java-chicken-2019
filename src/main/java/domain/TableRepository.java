@@ -16,6 +16,13 @@ public class TableRepository {
         tables.add(new Table(8));
     }
 
+    public Table selectTable(int tableNumber) {
+        return tables.stream()
+                .filter(table -> table.isEqualTableNumber(tableNumber))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("일치하는 테이블이 없습니다."));
+    }
+
     public static List<Table> tables() {
         return Collections.unmodifiableList(tables);
     }
